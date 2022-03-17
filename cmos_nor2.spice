@@ -1,0 +1,34 @@
+* SPICE3 file created from cmos_nor2.ext - technology: scmos
+.include ./t14y_tsmc_025_level3.txt
+.option scale=0.1u
+
+M1000 a_n4_21# X Vdd Vdd pfet w=20 l=2
++  ad=160 pd=56 as=120 ps=52
+M1001 Z Y a_n4_21# Vdd pfet w=20 l=2
++  ad=120 pd=52 as=0 ps=0
+M1002 Z X Gnd Gnd nfet w=5 l=2
++  ad=40 pd=26 as=60 ps=44
+M1003 Gnd Y Z Gnd nfet w=5 l=2
++  ad=0 pd=0 as=0 ps=0
+C0 Gnd gnd 10.2fF
+C1 Z gnd 5.5fF
+C2 Y gnd 9.6fF
+C3 X gnd 9.6fF
+
+
+vdd Vdd 0 3.3
+v4 clock 0 5
+v2 X 0 pulse(0 3.3 0 0.01n 0.01n 1n 2n)
+v3 Y 0 pulse(0 3.3 0 0.01n 0.01n 2n 4n)
+.tran 0.01n 8n
+.control
+run
+plot X Y Z
+plot -vdd#branch*Vdd
+
+meas TRAN trise TRIG v(Z) VAL=0.33 RISE=1 TARG v(Z) VAL=2.97 RISE=1
+meas TRAN tfall TRIG v(Z) VAL=2.97 FALL=1 TARG v(Z) VAL=0.33 FALL=1
+meas TRAN max_current MAX I(vdd)
+meas TRAN max_vout MAX V(Z)
+PRINT max_current*3.3
+.endc

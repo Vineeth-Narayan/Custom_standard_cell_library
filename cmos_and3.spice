@@ -1,0 +1,47 @@
+* SPICE3 file created from cmos_and3.ext - technology: scmos
+.include ./t14y_tsmc_025_level3.txt
+.option scale=0.1u
+
+M1000 a_6_44# X Vdd Vdd pfet w=10 l=2
++  ad=130 pd=66 as=194 ps=100
+M1001 Vdd Y a_6_44# Vdd pfet w=10 l=2
++  ad=0 pd=0 as=0 ps=0
+M1002 a_6_44# Z Vdd Vdd pfet w=10 l=2
++  ad=0 pd=0 as=0 ps=0
+M1003 Vout a_6_44# Vdd Vdd pfet w=10 l=2
++  ad=44 pd=30 as=0 ps=0
+M1004 a_6_5# X Gnd Gnd nfet w=15 l=2
++  ad=105 pd=44 as=114 ps=62
+M1005 a_15_5# Y a_6_5# Gnd nfet w=15 l=2
++  ad=135 pd=48 as=0 ps=0
+M1006 a_6_44# Z a_15_5# Gnd nfet w=15 l=2
++  ad=90 pd=42 as=0 ps=0
+M1007 Vout a_6_44# Gnd Gnd nfet w=5 l=2
++  ad=24 pd=20 as=0 ps=0
+C0 Vdd X 6.3fF
+C1 Vdd Y 6.3fF
+C2 Vdd Z 5.0fF
+C3 Vdd a_6_44# 11.2fF
+C4 Gnd gnd 26.1fF
+C5 Vout gnd 3.2fF
+C6 a_6_44# gnd 10.4fF
+C7 Z gnd 3.9fF
+C8 Y gnd 2.6fF
+C9 X gnd 2.6fF
+
+vdd Vdd 0 3.3
+v2 X 0 pulse(0 3.3 0 0.01n 0.01n 1n 2n)
+v3 Y 0 pulse(0 3.3 0 0.01n 0.01n 2n 4n)
+v4 Z 0 pulse(0 3.3 0 0.01n 0.01n 4n 8n)
+.tran 0.01n 8n
+.control
+run
+plot X Y Z Vout
+plot -vdd#branch*Vdd
+
+meas TRAN trise TRIG v(Vout) VAL=0.33 RISE=1 TARG v(Vout) VAL=2.97 RISE=1
+meas TRAN tfall TRIG v(Vout) VAL=2.97 FALL=1 TARG v(Vout) VAL=0.33 FALL=1
+meas TRAN max_current MAX I(vdd)
+meas TRAN max_vout MAX V(Vout)
+PRINT max_current*3.3
+.endc

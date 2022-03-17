@@ -1,0 +1,23 @@
+* SPICE3 file created from cmos_inv2.ext - technology: scmos
+.include ./t14y_tsmc_025_level3.txt
+.option scale=0.1u
+
+M1000 Vout Vin Vdd Vdd pfet w=10 l=2
++  ad=44 pd=30 as=44 ps=30
+M1001 Vout Vin Gnd Gnd nfet w=5 l=2
++  ad=24 pd=20 as=24 ps=20
+C0 Vin Vdd 3.3fF
+C1 Gnd gnd 12.6fF
+C2 Vout gnd 3.2fF
+C3 Vin gnd 7.7fF
+
+v1 Vin 0 pulse(0 3.3 0 0.05n 0.05n 5n 10n)
+.tran 1n 50n
+.control
+run
+plot Vin Vout
+save Vout
+.endc
+.end
+
+

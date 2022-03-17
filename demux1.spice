@@ -1,0 +1,44 @@
+* SPICE3 file created from demux1.ext - technology: scmos
+
+.option scale=0.01u
+
+M1000 S_bar S Vdd Vdd pfet w=2000 l=200
++  ad=840000 pd=5000 as=3.72e+06 ps=23000
+M1001 a_36_50# S_bar Vdd Vdd pfet w=1000 l=200
++  ad=800000 pd=3600 as=0 ps=0
+M1002 Vdd D1 a_36_50# Vdd pfet w=1000 l=200
++  ad=0 pd=0 as=0 ps=0
+M1003 Y0 a_36_50# Vdd Vdd pfet w=1000 l=200
++  ad=440000 pd=3000 as=0 ps=0
+M1004 a_100_50# D1 Vdd Vdd pfet w=1000 l=200
++  ad=800000 pd=3600 as=0 ps=0
+M1005 Vdd S a_100_50# Vdd pfet w=1000 l=200
++  ad=0 pd=0 as=0 ps=0
+M1006 Y1 a_100_50# Vdd Vdd pfet w=1000 l=200
++  ad=440000 pd=3000 as=0 ps=0
+M1007 S_bar S Vss Gnd nfet w=1000 l=200
++  ad=440000 pd=3000 as=1.92e+06 ps=13000
+M1008 a_36_16# S_bar Vss Gnd nfet w=1000 l=200
++  ad=800000 pd=3600 as=0 ps=0
+M1009 a_36_50# D1 a_36_16# Gnd nfet w=1000 l=200
++  ad=500000 pd=3000 as=0 ps=0
+M1010 Y0 a_36_50# Vss Gnd nfet w=500 l=200
++  ad=240000 pd=2000 as=0 ps=0
+M1011 a_100_16# D1 Vss Gnd nfet w=1000 l=200
++  ad=800000 pd=3600 as=0 ps=0
+M1012 a_100_50# S a_100_16# Gnd nfet w=1000 l=200
++  ad=500000 pd=3000 as=0 ps=0
+M1013 Y1 a_100_50# Vss Gnd nfet w=500 l=200
++  ad=240000 pd=2000 as=0 ps=0
+C0 Vdd S 30.9fF
+C1 Vdd S_bar 4.4fF
+C2 Vdd a_36_50# 4.7fF
+C3 Vdd a_100_50# 4.7fF
+C4 Vss gnd! 52.6fF
+C5 Y1 gnd! 3.2fF
+C6 Y0 gnd! 3.2fF
+C7 a_100_50# gnd! 12.8fF
+C8 a_36_50# gnd! 12.9fF
+C9 S_bar gnd! 9.9fF
+C10 S gnd! 12.1fF
+C11 Vdd gnd! 21.2fF

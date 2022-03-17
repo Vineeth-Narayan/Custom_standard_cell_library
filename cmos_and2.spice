@@ -1,0 +1,37 @@
+* SPICE3 file created from cmos_and2.ext - technology: scmos
+
+.option scale=1u
+
+M1000 a_10_24# X Vdd Vdd pfet w=10 l=2
++  ad=80 pd=36 as=144 ps=90
+M1001 Vdd Y a_10_24# Vdd pfet w=10 l=2
++  ad=0 pd=0 as=0 ps=0
+M1002 Vout a_10_24# Vdd Vdd pfet w=10 l=2
++  ad=44 pd=30 as=0 ps=0
+M1003 a_10_n10# X Gnd Gnd nfet w=10 l=2
++  ad=80 pd=36 as=74 ps=50
+M1004 a_10_24# Y a_10_n10# Gnd nfet w=10 l=2
++  ad=50 pd=30 as=0 ps=0
+M1005 Vout a_10_24# Gnd Gnd nfet w=5 l=2
++  ad=24 pd=20 as=0 ps=0
+C0 Vdd Y 3.3fF
+C1 Vdd a_10_24# 4.7fF
+C2 Vdd X 3.3fF
+C3 Gnd gnd! 22.4fF
+C4 Vout gnd! 3.2fF
+C5 a_10_24# gnd! 12.8fF
+C6 Y gnd! 5.6fF
+C7 X gnd! 5.6fF
+
+
+vdd Vdd 0 3.3
+v1 a_10_24# 0 pulse(0 3.3 0 0.05n 0.05n 0.5n 1n)
+v2 a_10_n10# 0 pulse(0 3.3 1n 0.05n 0.05n 0.5n 1n)
+
+.control
+tran 0.01n 8n
+run
+plot a_10_24# a_10_n10# Vout
+plot -Vdd#branch*Vdd
+
+.endc

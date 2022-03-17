@@ -1,0 +1,59 @@
+* SPICE3 file created from cmos_nor3.ext - technology: scmos
+.include ./t14y_tsmc_025_level3.txt
+.option scale=0.1u
+
+M1000 a_3_10# x Vdd Vdd pfet w=30 l=2
++  ad=240 pd=76 as=246 ps=78
+M1001 a_13_10# y a_3_10# Vdd pfet w=30 l=2
++  ad=240 pd=76 as=0 ps=0
+M1002 Vout z a_13_10# Vdd pfet w=30 l=2
++  ad=192 pd=76 as=0 ps=0
+M1003 Vout x Gnd Gnd nfet w=5 l=2
++  ad=70 pd=48 as=70 ps=48
+M1004 Gnd y Vout Gnd nfet w=5 l=2
++  ad=0 pd=0 as=0 ps=0
+M1005 Vout z Gnd Gnd nfet w=5 l=2
++  ad=0 pd=0 as=0 ps=0
+C0 Gnd gnd 12.1fF
+C1 Vout gnd 6.5fF
+C2 z gnd 8.4fF
+C3 y gnd 8.4fF
+C4 x gnd 8.4fF
+C10 Vout Gnd 0.1fF
+
+vdd Vdd 0 3.3
+v2 X 0 pulse(0 3.3 0 0.01n 0.01n 1n 2n)
+v3 Y 0 pulse(0 3.3 0 0.01n 0.01n 2n 4n)
+v4 Z 0 pulse(0 3.3 0 0.01n 0.01n 4n 8n)
+.tran 0.01n 8n
+.control
+ foreach cap 1fF 2fF 10fF 50fF 100fF 200fF 1000fF  
+  alter C10=$cap 
+  tran 0.01n 10n
+  meas TRAN max_vout MAX V(Vout)
+  meas TRAN avg_power integ I(vdd) from=7n to=8n 
+  PRINT avg_power*3.3/(1n)
+ end
+.endc
+
+.control
+let x1=-tran1.vdd#branch
+let x2=-tran2.vdd#branch
+let x3=-tran3.vdd#branch
+let x4=-tran4.vdd#branch
+let x5=-tran5.vdd#branch
+let x6=-tran6.vdd#branch
+let x7=-tran7.vdd#branch
+
+let y1=tran1.Vout
+let y2=tran2.Vout
+let y3=tran3.Vout
+let y4=tran4.Vout
+let y5=tran5.Vout
+let y6=tran6.Vout
+let y7=tran7.Vout
+
+plot x1 x2 x3 x4 x5 x6 x7
+plot y1 y2 y3 y4 y5 y6 y7
+.endc
+.end
