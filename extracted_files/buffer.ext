@@ -1,0 +1,21 @@
+timestamp 1638005104
+version 8.0
+tech scmos
+style lambda=1.0(scna20_orb)
+scale 1000 1 100
+resistclasses 26670 59550 23860 19690 27260 2000000 49 26 2505830
+node "Gnd" 584 19646 10 6 ndc 88 60 48 40 0 0 0 0 0 0 0 0 502 166 0 0 0 0
+node "Vout" 27 0 51 21 ndiff 36 24 0 0 0 0 0 0 0 0 0 0 16 16 0 0 0 0
+node "clock" 214 4760 49 11 p 0 0 0 0 52 48 0 0 0 0 0 0 16 16 0 0 0 0
+node "a_33_5#" 499 3478 33 5 ndiff 80 54 84 50 0 0 0 0 0 0 0 0 171 118 0 0 0 0
+node "a_17_5#" 1066 9807 17 5 ndiff 44 30 84 50 126 124 0 0 0 0 0 0 174 120 0 0 0 0
+node "Vin" 680 6504 11 21 pc 0 0 0 0 130 126 0 0 0 0 0 0 16 16 0 0 0 0
+node "Vdd" 4690 987 8 33 nw 48 40 168 100 0 0 0 0 0 0 0 0 542 196 0 0 2031 184
+cap "Vdd" "Vin" 2146
+cap "a_33_5#" "Vdd" 1081
+cap "Vdd" "a_17_5#" 3227
+device mosfet nfet 31 5 32 6 2 10 "Gnd!" "a_17_5#" 4 0 "Gnd" 10 0 "a_33_5#" 10 0
+device mosfet nfet 15 5 16 6 2 10 "Gnd!" "Vin" 4 0 "Gnd" 10 0 "a_17_5#" 10 0
+device mosfet nfet 49 21 50 22 2 6 "Gnd!" "clock" 4 0 "a_33_5#" 6 0 "Vout" 6 0
+device mosfet pfet 31 38 32 39 2 20 "Vdd" "a_17_5#" 4 0 "Vdd" 20 0 "a_33_5#" 20 0
+device mosfet pfet 15 38 16 39 2 20 "Vdd" "Vin" 4 0 "Vdd" 20 0 "a_17_5#" 20 0
