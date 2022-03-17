@@ -1,0 +1,118 @@
+magic
+tech scmos
+timestamp 1633491213
+<< nwell >>
+rect -31 77 -13 78
+rect 0 77 38 78
+rect -31 40 38 77
+<< polysilicon >>
+rect -22 67 -20 69
+rect -12 67 -10 69
+rect 17 60 19 62
+rect -22 16 -20 47
+rect -12 16 -10 47
+rect 17 17 19 50
+rect -22 9 -20 11
+rect -12 9 -10 11
+rect 17 10 19 12
+<< ndiffusion >>
+rect -24 11 -22 16
+rect -20 11 -18 16
+rect -14 11 -12 16
+rect -10 11 -8 16
+rect 16 13 17 17
+rect 13 12 17 13
+rect 19 13 20 17
+rect 19 12 23 13
+<< pdiffusion >>
+rect -24 59 -22 67
+rect -28 47 -22 59
+rect -20 47 -12 67
+rect -10 55 -4 67
+rect 13 57 17 60
+rect -10 49 -8 55
+rect 16 53 17 57
+rect 13 50 17 53
+rect 19 57 23 60
+rect 19 53 20 57
+rect 19 50 23 53
+rect -10 47 -4 49
+<< metal1 >>
+rect -31 76 38 78
+rect -31 72 -30 76
+rect -26 72 -18 76
+rect -14 72 -7 76
+rect -3 75 38 76
+rect -3 72 5 75
+rect -31 71 5 72
+rect 9 71 17 75
+rect 21 71 28 75
+rect 32 71 38 75
+rect -31 70 38 71
+rect -28 67 -25 70
+rect 12 57 15 70
+rect -7 45 -4 49
+rect -17 42 10 45
+rect -17 16 -14 42
+rect 7 32 10 42
+rect 7 28 13 32
+rect 21 17 24 53
+rect -28 8 -25 11
+rect -7 8 -4 11
+rect 12 8 15 13
+rect -32 7 38 8
+rect -32 6 5 7
+rect -32 2 -30 6
+rect -26 2 -20 6
+rect -16 2 -10 6
+rect -6 3 5 6
+rect 9 3 17 7
+rect 21 3 27 7
+rect 31 3 38 7
+rect -6 2 38 3
+rect -32 0 38 2
+<< ntransistor >>
+rect -22 11 -20 16
+rect -12 11 -10 16
+rect 17 12 19 17
+<< ptransistor >>
+rect -22 47 -20 67
+rect -12 47 -10 67
+rect 17 50 19 60
+<< polycontact >>
+rect -26 30 -22 34
+rect -10 29 -6 33
+rect 13 28 17 32
+<< ndcontact >>
+rect -28 11 -24 16
+rect -18 11 -14 16
+rect -8 11 -4 16
+rect 12 13 16 17
+rect 20 13 24 17
+<< pdcontact >>
+rect -28 59 -24 67
+rect -8 49 -4 55
+rect 12 53 16 57
+rect 20 53 24 57
+<< psubstratepcontact >>
+rect -30 2 -26 6
+rect -20 2 -16 6
+rect -10 2 -6 6
+rect 5 3 9 7
+rect 17 3 21 7
+rect 27 3 31 7
+<< nsubstratencontact >>
+rect -30 72 -26 76
+rect -18 72 -14 76
+rect -7 72 -3 76
+rect 5 71 9 75
+rect 17 71 21 75
+rect 28 71 32 75
+<< labels >>
+rlabel metal1 13 73 13 73 5 Vdd
+rlabel metal1 13 5 13 5 1 Gnd
+rlabel metal1 23 29 23 29 1 Vout
+rlabel polycontact -24 32 -24 32 1 X
+rlabel polycontact -8 31 -8 31 1 Y
+rlabel metal1 -5 43 -5 43 1 Z
+<< end >>
